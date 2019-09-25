@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+<h3> Title: <%= @goal.name %> </h3>
+
+<p> Description: <%= @goal.short_description %> </p>
 
 <%= link_to 'Edit', edit_goal_path(@goal) %> |
 <%= link_to 'Back', goals_path %>

@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+<h3> Title: <%= @character.name %> </h3>
+
+<p> Description: <%= @character.short_description %> </p>
 
 <%= link_to 'Edit', edit_character_path(@character) %> |
 <%= link_to 'Back', characters_path %>
