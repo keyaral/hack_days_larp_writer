@@ -1,0 +1,17 @@
+<%= form_with(model: larp, local: true) do |form| %>
+  <% if larp.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(larp.errors.count, "error") %> prohibited this larp from being saved:</h2>
+
+      <ul>
+      <% larp.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

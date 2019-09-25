@@ -1,0 +1,2 @@
+class Larp < ApplicationRecord
+end
