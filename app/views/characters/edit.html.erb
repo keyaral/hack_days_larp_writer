@@ -1,6 +1,5 @@
 <h1>Editing Character</h1>
 
-<%= render 'form', character: @character %>
+<%= render 'form', character: @character, larp: @larp %>
 
-<%= link_to 'Show', @character %> |
-<%= link_to 'Back', characters_path %>
+<%= link_to 'Back', larp_character_path(@larp, @character) %>

@@ -2,5 +2,5 @@
 
 <p> Description: <%= @character.short_description %> </p>
 
-<%= link_to 'Edit', edit_character_path(@character) %> |
-<%= link_to 'Back', characters_path %>
+<%= link_to 'Edit', edit_larp_character_path(@larp, @character) %> |
+<%= link_to 'Back', larp_characters_path(@larp) %>
