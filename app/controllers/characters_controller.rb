@@ -1,5 +1,5 @@
 class CharactersController < ApplicationController
-  before_action :set_character, only: [:show, :edit, :update, :destroy]
+  before_action :set_character_and_larp, only: [:show, :edit, :update, :destroy]
 
   # GET /characters
   # GET /characters.json
@@ -11,7 +11,6 @@ class CharactersController < ApplicationController
   # GET /characters/1
   # GET /characters/1.json
   def show
-    @larp = Larp.find(params['larp_id'])
   end
 
   # GET /characters/new
@@ -22,17 +21,17 @@ class CharactersController < ApplicationController
 
   # GET /characters/1/edit
   def edit
-    @larp = Larp.find(params['larp_id'])
   end
 
   # POST /characters
   # POST /characters.json
   def create
     @character = Character.new(character_params)
-    @character.larp_id = params['larp_id']
+    @larp = Larp.find(params['larp_id'])
+    @character.larp = @larp
 
     if @character.save
-      redirect_to larp_characters_path(params['larp_id']), notice: 'Character was successfully created.'
+      redirect_to larp_characters_path(@larp), notice: 'Character was successfully created.'
     else
       render :new
     end
@@ -41,10 +40,8 @@ class CharactersController < ApplicationController
   # PATCH/PUT /characters/1
   # PATCH/PUT /characters/1.json
   def update
-    @character.larp_id = params['larp_id']
-
     if @character.update(character_params)
-      redirect_to larp_characters_path(params['larp_id']), notice: 'Character was successfully updated.'
+      redirect_to larp_characters_path(@larp), notice: 'Character was successfully updated.'
     else
       render :edit
     end
@@ -59,8 +56,9 @@ class CharactersController < ApplicationController
 
   private
   # Use callbacks to share common setup or constraints between actions.
-  def set_character
+  def set_character_and_larp
     @character = Character.find(params[:id])
+    @larp = Larp.find(params['larp_id'])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
