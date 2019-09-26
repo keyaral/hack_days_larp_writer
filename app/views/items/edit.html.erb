@@ -1,6 +1,6 @@
 <h1>Editing Item</h1>
 
-<%= render 'form', item: @item %>
+<%= render 'form', item: @item, larp: @larp  %>
 
-<%= link_to 'Show', @item %> |
-<%= link_to 'Back', items_path %>
+<%= link_to 'Show', larp_item_path(@larp, @item) %> |
+<%= link_to 'Back', larp_items_path(@larp) %>
