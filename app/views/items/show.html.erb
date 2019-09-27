@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+<h3> Title: <%= @item.name %> </h3>
 
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>
+<p> Description: <%= @item.short_description %> </p>
+
+<%= link_to 'Edit', edit_larp_item_path(@larp, @item) %> |
+<%= link_to 'Back', larp_items_path(@larp) %>

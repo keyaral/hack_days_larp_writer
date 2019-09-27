@@ -1,10 +1,10 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Characters</h1>
 
 <table>
   <thead>
     <tr>
+      <th>Name</th>
+      <th>Description</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -12,9 +12,11 @@
   <tbody>
     <% @characters.each do |character| %>
       <tr>
-        <td><%= link_to 'Show', character %></td>
-        <td><%= link_to 'Edit', edit_character_path(character) %></td>
-        <td><%= link_to 'Destroy', character, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= character.name %></td>
+        <td><%= character.short_description %></td>
+        <td><%= link_to 'Show', larp_character_path(@larp, character) %></td>
+        <td><%= link_to 'Edit', edit_larp_character_path(@larp, character) %></td>
+        <td><%#= link_to 'Destroy', character, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Character', new_character_path %>
+<%= link_to 'New Character', new_larp_character_path(@larp) %>

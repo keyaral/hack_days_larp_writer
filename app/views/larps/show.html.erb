@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+<h3> Title: <%= @larp.name %> </h3>
+
+<p> Description: <%= @larp.short_description %> </p>
 
 <%= link_to 'Edit', edit_larp_path(@larp) %> |
 <%= link_to 'Back', larps_path %>
